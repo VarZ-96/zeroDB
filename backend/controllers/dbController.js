@@ -67,6 +67,7 @@ export const executePostgresQuery = async (req, res) => {
     if (!pool) {
       const decryptedUri = decrypt(user.postgresUri);
       pool = new Pool({ connectionString: decryptedUri, max: 2, idleTimeoutMillis: 30000 });
+      pool.on("error", (err) => console.error("Unexpected pg pool error:", err));
       poolCache.set(userId, pool);
     }
 
@@ -111,6 +112,7 @@ export const getPostgresSchema = async (req, res) => {
       }
       const decryptedUri = decrypt(user.postgresUri);
       pool = new Pool({ connectionString: decryptedUri, max: 2, idleTimeoutMillis: 30000 });
+      pool.on("error", (err) => console.error("Unexpected pg pool error:", err));
       poolCache.set(userId, pool);
     }
 

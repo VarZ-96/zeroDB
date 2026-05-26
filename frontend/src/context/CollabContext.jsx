@@ -33,7 +33,9 @@ export const CollabProvider = ({ children }) => {
     }
 
     const socketUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
-    const newSocket = io(socketUrl);
+    const newSocket = io(socketUrl, {
+      transports: ["websocket"]
+    });
     
     newSocket.on("connect", () => {
       console.log("🔌 Connected to zeroDB Socket Server");
