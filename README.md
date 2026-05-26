@@ -28,20 +28,20 @@ zeroDB is a full-stack, zero-friction database compiler and playground built dir
 
 ```mermaid
 graph TD
-    subgraph Client (Browser)
+    subgraph Client ["Client (Browser)"]
         A[Vite React Frontend] --> B[Monaco SQL Editor]
         A --> C[DuckDB-Wasm Engine]
         A --> D[SQL.js SQLite Engine]
         A --> E[Socket.io Client]
     end
 
-    subgraph Server (Node.js & Express)
+    subgraph Server ["Server (Node.js & Express)"]
         F[Render Backend API] --> G[Socket.io Server]
         F --> H[Google Gemini API]
         F --> I[Crypto Service AES-256]
     end
 
-    subgraph Data Tier
+    subgraph Data ["Data Tier"]
         J[MongoDB Atlas]
         K[Neon/Supabase Remote Postgres]
     end
