@@ -1,6 +1,8 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import dotenv from "dotenv";
+dotenv.config();
 
-const apiKey = "AIzaSyCOt1u_7RTnY97eCOhfBaJr9aBqZN-xTkM"; // User's new key
+const apiKey = process.env.GEMINI_API_KEY;
 
 async function testKey() {
   try {
